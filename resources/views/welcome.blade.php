@@ -19,6 +19,7 @@
             #logo-3d-container {
                 margin-bottom: 120px;
             }
+            
             .fixed-bg {
             /* The background image */
             background-image: url("storage/images/fundo.png");
