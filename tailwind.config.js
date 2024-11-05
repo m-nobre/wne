@@ -20,6 +20,10 @@ export default {
                 'sunset': "url('/storage/images/fundo.png')",
               }
         },
+        screens: {
+            'xs': '320px',
+            // => @media (min-width: 640px) { ... }
+          },
     },
 
     plugins: [forms, typography],

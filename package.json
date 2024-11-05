@@ -16,7 +16,10 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "alpinejs-requests": "^1.0.4",
+        "quill": "^2.0.2",
         "three": "^0.169.0",
+        "tinymce": "^7.4.1",
         "troika-three-text": "^0.50.1"
     }
 }

@@ -13,9 +13,14 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        @stack('head')
         <!-- Styles -->
         @livewireStyles
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -39,6 +44,7 @@
         </div>
 
         @stack('modals')
+        @stack('scripts')
 
         @livewireScripts
     </body>
