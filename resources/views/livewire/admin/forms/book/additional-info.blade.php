@@ -2,7 +2,6 @@
     {{-- The whole world belongs to you. --}}
     <div class="mb-3">
         <x-label for="publish_date" class="custom-label" value="{{ __('Publish Date') }}" />
-        @json($publish_date)
         <input type="datetime-local" id="publish_date" name="publish_date" 
             wire:model.live.debounce.1000ms="publish_date" 
             value="{{ $publish_date }}" 

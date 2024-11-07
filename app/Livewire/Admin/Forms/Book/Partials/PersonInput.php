@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
-use App\Models\Author;
 use Illuminate\Support\Str;
 
 
@@ -22,20 +21,56 @@ class PersonInput extends Component
 
 
     
-    public function mount($model)
+    public function mount($book, $model, $old_value)
     {
-        $permitted = ['author', 'illustrator', 'editor', 'translator', 'pulisher'];
+        $permitted = ['author', 'illustrator', 'editor', 'translator', 'publisher'];
         
         $this->model = $model;
         $this->path = trim($this->path .= ucFirst($model));
         
-        if (in_array($model, $permitted)) {
-            
-            $this->searchResults = $this->path::all()->pluck("name", "id")->toArray();
-            // dd($this->searchResults);
-        } else {
+        if (!in_array($model, $permitted)) {
             return "Modelo não permitido";
+        } 
+
+        $this->book = $book;
+        
+        $this->searchResults = $this->path::all()->pluck("name", "id")->toArray();
+
+        switch ($this->model) {
+            case 'author':
+                $this->author_id = $this->book->author_id;
+                $this->name = $this->book->author->name ?? "";
+                break;
+            
+            case 'illustrator':
+                $this->illustrator_id = $this->book->illustrator_id;
+                $this->name = $this->book->illustrator->name ?? "";
+
+                break;
+            
+            case 'editor':
+                $this->editor_id = $this->book->editor_id;
+                $this->name = $this->book->editor->name ?? "";
+
+                break;
+            
+            case 'translator':
+                $this->translator_id = $this->book->translator_id;
+                $this->name = $this->book->translator->name ?? "";
+
+                break;
+            
+            case 'publisher':
+                $this->publisher_id = $this->book->publisher_id;
+                $this->name = $this->book->publisher->name ?? "";
+
+                break;
+            
+            default:
+                # code...
+                break;
         }
+        
     }
 
     // Magic method that is fired when `streetAddress` is updated
@@ -104,22 +139,10 @@ class PersonInput extends Component
             }
 
         }
-
-        // if(empty($this->newPerson)){
-        //     $this->newPerson = trim($this->path)::firstOrCreate([
-        //         'name' => $this->name,
-        //         'slug' => Str::slug($this->name),
-        //     ]);
-
-        // } else {
-        //     $this->newPerson->name = $this->name;
-        //     $this->newPerson->slug = Str::slug($this->name);
-        //     $this->newPerson->save();
-        // }
     }
     
     public function render()
     {
-        return view('livewire.admin.person-input');
+        return view('livewire.admin.forms.book.partials.person-input');
     }
 }

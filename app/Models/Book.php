@@ -49,7 +49,7 @@ class Book extends Model
      */
     public function editor()
     {
-        return $this->hasOne(Editor::CLASS);
+        return $this->belongsTo(Editor::CLASS);
     }
 
     /**
@@ -73,7 +73,7 @@ class Book extends Model
      */
     public function publisher()
     {
-        return $this->hasOne(Publisher::CLASS);
+        return $this->belongsTo(Publisher::CLASS);
     }
 
     /**
@@ -90,7 +90,7 @@ class Book extends Model
      */
     public function translator()
     {
-        return $this->belongsToMany(Translator::class);
+        return $this->belongsTo(Translator::class);
     }
 
     /**
@@ -107,6 +107,14 @@ class Book extends Model
     public function genres()
     {
         return $this->belongsToMany(Genre::class);
+    }
+
+    /**
+     * The illustrators that illustratated the book.
+     */
+    public function illustrator()
+    {
+        return $this->belongsTo(Illustrator::class);
     }
 
     /**
