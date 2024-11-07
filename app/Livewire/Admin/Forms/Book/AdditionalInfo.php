@@ -16,6 +16,7 @@ class AdditionalInfo extends Component
 {
     public $book;
     public $publish_date;
+    public $date_value;
     public $key;
     public $language_id = NULL;
     public $languages;
@@ -34,12 +35,28 @@ class AdditionalInfo extends Component
     {
         $this->book = $book;
         $this->key = $this->book->key;
+        $this->isbn = $this->book->isbn;
+        $this->isbn13 = $this->book->isbn13;
         $this->languages = Language::all();
+        $this->language_id = $this->book->language_id;
         $this->media_types = MediaType::all();
+        $this->media_type_id = $this->book->media_type_id;
         $this->publication_statuses = PublicationStatus::all();
+        $this->publication_status_id = $this->book->publication_status_id;
         $this->genres = Genre::all();
+        $this->genre_id = $this->book->genre_id;
+        $this->publish_date = date("Y-m-d\TH:i", strtotime($this->book->publish_date));
+
+        // $this->date_value =  date("Y-m-d\TH:i:s\Z", strtotime($this->book->publish_date));
+
+
     }
 
+    public function updatedPublicationStatusId($value)
+    {
+        $this->book->publication_status_id = $value;
+        $this->book->save();
+    }
     public function updatedLanguageId($value)
     {
         $this->book->language_id = $value;

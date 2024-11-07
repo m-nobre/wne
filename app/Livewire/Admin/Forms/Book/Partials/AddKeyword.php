@@ -37,8 +37,8 @@ class AddKeyword extends Component
             $this->book->save();
             $this->new_keyword = NULL;
             $this->verified = NULL;
+        
         }
-
     }
 
     public function render()

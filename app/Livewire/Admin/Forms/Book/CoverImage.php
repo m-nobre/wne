@@ -18,6 +18,7 @@ class CoverImage extends Component
     
     #[Validate('image')]
     public $cover_image;
+    public $old_image;
     public $book;
     public $key;
 
@@ -25,6 +26,8 @@ class CoverImage extends Component
     {
         $this->book = $book;
         $this->key = $this->book->key;
+        $this->old_image = !empty($book->cover_image) ? $book->cover_image : NULL;
+
     }
     
     public function savePhoto()
@@ -41,6 +44,7 @@ class CoverImage extends Component
         // dd($photo);
 
 
+        $this->old_image = NULL;
         $this->book->cover_image = $photo;
         $this->book->save();
 

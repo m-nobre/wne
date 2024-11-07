@@ -15,7 +15,7 @@ class Book extends Component
 
     public function mount()
     {
-        $this->book = new NewBook;
+        $this->book = NewBook::find(676);
         $this->key = Tools::key(6,33);
         $this->book->key = $this->key;
         $this->book->save();
@@ -26,6 +26,12 @@ class Book extends Component
     public function bookUpdated($id)
     {
         $this->book = NewBook::find($id);
+    }
+
+    public function saveBook()
+    {
+        $this->book->key = NULL;
+        $this->book->save();
     }
 
     public function render()

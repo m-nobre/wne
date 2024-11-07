@@ -19,6 +19,9 @@ class Description extends Component
     {
         $this->book = $book;
         $this->key = $this->book->key;
+
+        $this->description = $this->book->description;
+
     }
 
     public function updatedDescription(){

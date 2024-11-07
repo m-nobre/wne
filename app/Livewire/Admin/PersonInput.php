@@ -62,6 +62,7 @@ class PersonInput extends Component
 
 
         } else {
+            $this->newPerson = NULL;
             $this->searchResults = [];
         }
     }

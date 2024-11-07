@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -21,28 +22,28 @@
             }
             
             .fixed-bg {
-            /* The background image */
-            background-image: url("storage/images/fundo.png");
+                /* The background image */
+                background-image: url("storage/images/fundo.png");
 
-            /* Set a specified height, or the minimum height for the background image */
-            min-height: 500px;
+                /* Set a specified height, or the minimum height for the background image */
+                min-height: 500px;
 
-            /* Set background image to fixed (don't scroll along with the page) */
-            background-attachment: fixed;
+                /* Set background image to fixed (don't scroll along with the page) */
+                background-attachment: fixed;
 
-            /* Center the background image */
-            background-position: center;
+                /* Center the background image */
+                background-position: center;
 
-            /* Set the background image to no repeat */
-            background-repeat: no-repeat;
+                /* Set the background image to no repeat */
+                background-repeat: no-repeat;
 
-            /* Scale the background image to be as large as possible */
-            background-size: cover;
+                /* Scale the background image to be as large as possible */
+                background-size: cover;
             }
             .title-text {
-            background-color: #333;
-            font-family: 'Impact', cursive;
-            font-size: 73px;
+                background-color: #333;
+                font-family: 'Impact', cursive;
+                font-size: 73px;
             }
 
             path {
@@ -92,7 +93,7 @@
                             </div>
                             
                         </div>
-                        <div class="flex grid gap-6 lg:grid-cols-2 lg:gap-8">
+                        <div class="flex grid gap-6 grid-cols-1 lg:gap-8">
                             @livewire('public.show-books')
                         </div>
                     </main>

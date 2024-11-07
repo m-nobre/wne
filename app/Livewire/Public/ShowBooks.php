@@ -11,7 +11,7 @@ class ShowBooks extends Component
 
     public function mount()
     {
-        $this->books = Book::where('key', '')->get();
+        $this->books = Book::where('key', NULL)->get();
     }
 
     public function render()

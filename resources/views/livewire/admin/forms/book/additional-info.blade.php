@@ -2,7 +2,12 @@
     {{-- The whole world belongs to you. --}}
     <div class="mb-3">
         <x-label for="publish_date" class="custom-label" value="{{ __('Publish Date') }}" />
-        <input type="date" id="publish_date" name="publish_date" wire:model.live.debounce.1000ms="publish_date"
+        @json($publish_date)
+        <input type="datetime-local" id="publish_date" name="publish_date" 
+            wire:model.live.debounce.1000ms="publish_date" 
+            value="{{ $publish_date }}" 
+            min="{{Carbon\Carbon::now()->subDays(30)->format('Y-m-d\TH:i')}}"
+            max="{{Carbon\Carbon::now()->addDays(30)->format('Y-m-d\TH:i')}}"
             class="w-full mt-1 bg-transparent placeholder:text-slate-400 text-slate-600 text-sm border border-slate-200 rounded-md transition duration-300 ease focus:outline-none focus:ring-blue-500 hover:border-blue-300 shadow-sm focus:shadow" />
     </div>
     <div class="mb-3">
@@ -113,4 +118,5 @@
 
         </div>
     </div>
+
 </div>

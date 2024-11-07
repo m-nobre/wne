@@ -20,6 +20,8 @@ class MainInfo extends Component
     {
         $this->book = $book;
         $this->key = $key;
+        $this->title = !empty($book->title) ? $book->title : NULL;
+        $this->subtitle = !empty($book->subtitle) ? $book->subtitle : NULL;
     }
 
     public function updatedTitle(){

@@ -88,7 +88,9 @@ const stats = new Stats()
 function animate() {
     requestAnimationFrame(animate)
 
-    obj.rotation.y += 0.01
+    if (obj != null){
+        obj.rotation.y += 0.01
+    }
     // obj.rotation.x += 0.01
 
     render()
