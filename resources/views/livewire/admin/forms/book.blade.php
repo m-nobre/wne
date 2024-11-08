@@ -16,11 +16,7 @@
     <div class="px-6 py-4 grid grid-cols-2 gap-3">
         <div class="bg-white p-3 rounded-2xl shadow-sm">
             @livewire('admin.forms.book.main-info', ['book' => $book, 'key' => $key])
-        </div>
-        <div class="bg-white p-3 rounded-2xl shadow-sm">
-            @livewire('admin.forms.book.cover-image', ['book' => $book, 'key' => $key])
-        </div>
-        <div class="bg-white p-3 rounded-2xl shadow-sm">
+
             @livewire('admin.forms.book.description', ['book' => $book, 'key' => $key])
         </div>
         <div class="bg-white p-3 rounded-2xl shadow-sm">
@@ -30,6 +26,9 @@
             @livewire('admin.forms.book.people-info', ['book' => $book, 'key' => $key])
         </div>
         <div class="bg-white p-3 rounded-2xl shadow-sm">
+            @livewire('admin.forms.book.cover-image', ['book' => $book, 'key' => $key])
+        </div>
+        <div class="bg-white p-3 col-span-2 rounded-2xl shadow-sm">
             @livewire('admin.forms.book.tag-author-info', ['book' => $book, 'key' => $key])
         </div>
     </div>
@@ -44,6 +43,12 @@
         
         </button>
     </div>
-        
+    @push('scripts')
+        <script>
+            $(function(){
+                $(".tox-statusbar__branding").hide();
+            });
+        </script>
+    @endpush
    
 </div>

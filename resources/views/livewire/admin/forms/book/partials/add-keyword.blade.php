@@ -1,4 +1,4 @@
-<div class="flex flex-wrap">
+<div class="grid gap-3 align-top  shadow-md p-3 rounded-xl">
     {{-- Success is as dangerous as failure. --}}
     <div class="grid grid-cols-4 grid-rows-1 gap-3">
         <div class="space-y-8 divide-y col-span-3 divide-gray-200">
@@ -17,10 +17,10 @@
     @if (!empty($keywords))
     <div class="flex w-full">
 
-        <div class="flex flex-row w-full flex-wrap">
+        <div class="flex flex-row justify-end gap-2 flex-wrap pt-3">
             @foreach ($keywords as $id => $value)
-                <div class="flex flex-row flex-wrap max-h-16 w-full">
-                    <x-random-colour-badge :value="$value" />
+                <div class="max-h-16 text-center object-contain flex-wrap">
+                    <x-random-colour-badge :value="$value" :color="Tools::RandomColour()" />
                 </div>
 
             @endforeach

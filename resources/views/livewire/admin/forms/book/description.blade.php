@@ -19,6 +19,7 @@
                     /* TinyMCE configuration options */
                     skin: false,
                     content_css: false,
+                    height: 300,
                     setup: (editor) => {
                         editor.on('input', (e) => {
 

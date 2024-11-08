@@ -15,6 +15,8 @@ class AddKeyword extends Component
     {
         $this->book = $book;
         $this->key = $this->book->key;
+        $this->keywords = json_decode($this->book->keywords, TRUE) ?? NULL;
+
     }
 
 

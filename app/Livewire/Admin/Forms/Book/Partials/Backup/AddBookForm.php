@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials\Backup;
 use Livewire\WithFileUploads;
 
 
@@ -145,7 +145,7 @@ class AddBookForm extends Component
 
     public function render()
     {
-        return view('livewire.admin.add-book-form');
+        return view('livewire.admin.forms.book.partials.backup.add-book-form');
     }
 
 /*  TITLE, SUBTITLE AND DESCRIPTION */

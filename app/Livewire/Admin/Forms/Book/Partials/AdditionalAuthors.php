@@ -29,7 +29,8 @@ class AdditionalAuthors extends Component
         $this->book = $book;
         $this->key = $this->book->key;
         $this->searchResults = Author::all()->pluck("name", "id")->toArray();
-
+        // $this->publication_status_id = $this->book->publication_status_id;
+        $this->additional_authors = json_decode($this->book->additional_authors, TRUE) ?? NULL;
     }
 
     

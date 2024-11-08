@@ -14,34 +14,11 @@ class RandomColourBadge extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($value)
+    public function __construct($value, $color)
     {
-        $colours = [
-            'slate',
-            'gray',
-            'zinc',
-            'neutral',
-            'stone',
-            'red',
-            'orange',
-            'amber',  
-            'yellow',  
-            'lime',  
-            'green',  
-            'emerald',  
-            'teal',  
-            'cyan',  
-            'sky',  
-            'blue',  
-            'indigo',  
-            'violet',  
-            'purple',  
-            'fuchsia',  
-            'pink',  
-            'rose',  
-        ];
 
-        $this->colour =  $colours[array_rand($colours, 1)];
+
+        $this->colour = $color;
         $this->value = $value;
 
     }
