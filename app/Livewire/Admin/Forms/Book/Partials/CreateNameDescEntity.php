@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
@@ -72,6 +72,6 @@ class CreateNameDescEntity extends Component
 
     public function render()
     {
-        return view('livewire.admin.create-name-desc-entity');
+        return view('livewire.admin.forms.book.partials.create-name-desc-entity');
     }
 }

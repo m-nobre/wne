@@ -16,7 +16,7 @@
             </div>
             <div class="icons flex items-end px-1">
 
-                @livewire('custom.modal-button', ['model' => 'Language', 'element' => 'language_id' ,'view' => 'admin.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('language_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
+                @livewire('custom.modal-button', ['model' => 'Language', 'element' => 'language_id' ,'view' => 'admin.forms.book.partials.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('language_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
                 
             </div>
         </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="icons flex items-end px-1">
 
-                @livewire('custom.modal-button', ['model' => 'PublicationStatus', 'element' => 'publication_status_id' ,'view' => 'admin.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('publication_status_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
+                @livewire('custom.modal-button', ['model' => 'PublicationStatus', 'element' => 'publication_status_id' ,'view' => 'admin.forms.book.partials.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('publication_status_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
                   
             </div>
         </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="icons flex items-end px-1">
     
-                    @livewire('custom.modal-button', ['model' => 'MediaType', 'element' => 'media_type_id' ,'view' => 'admin.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('media_type_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
+                    @livewire('custom.modal-button', ['model' => 'MediaType', 'element' => 'media_type_id' ,'view' => 'admin.forms.book.partials.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen'], key('media_type_modal_button')) {{-- https://icons.getbootstrap.com/ --}}
                     
                 </div>
             </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="icons flex items-end px-1">
 
-                @livewire('custom.modal-button', ['model' => 'Genre', 'element' => 'genre_id' ,'view' => 'admin.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen']) {{-- https://icons.getbootstrap.com/ --}}
+                @livewire('custom.modal-button', ['model' => 'Genre', 'element' => 'genre_id' ,'view' => 'admin.forms.book.partials.create-name-desc-entity', 'type' => 'livewire', 'icon' => 'bi-plus-square', 'colour' => 'limegreen']) {{-- https://icons.getbootstrap.com/ --}}
                 
             </div>
         </div>

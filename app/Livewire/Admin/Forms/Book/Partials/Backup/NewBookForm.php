@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials\Backup;
 
 use Livewire\Component;
 
@@ -48,6 +48,6 @@ class NewBookForm extends Component
 
     public function render()
     {
-        return view('livewire.admin.new-book-form');
+        return view('livewire.admin.forms.book.partials.backup.new-book-form');
     }
 }

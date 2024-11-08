@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials\Backup;
 
 use Livewire\Component;
 use App\Models\Author;
@@ -145,6 +145,6 @@ class AdditionalAuthorsInput extends Component
     }
     public function render()
     {
-        return view('livewire.admin.additional-authors-input');
+        return view('livewire.admin.forms.book.partials.backup.additional-authors-input');
     }
 }

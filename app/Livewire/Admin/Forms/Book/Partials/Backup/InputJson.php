@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials\Backup;
 
 use Livewire\Component;
 use App\Models\Author;
@@ -124,6 +124,6 @@ class InputJson extends Component
 
     public function render()
     {
-        return view('livewire.admin.input-json');
+        return view('livewire.admin.forms.book.partials.backup.input-json');
     }
 }
