@@ -6,7 +6,10 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
-
+use Livewire\Attributes\Validate; 
+use Livewire\Attributes\On; 
+use Tools;
+use App\Models\Book;
 
 class CreateNameDescEntity extends Component
 {
@@ -25,6 +28,7 @@ class CreateNameDescEntity extends Component
 
 
     }
+
 
 
     public function updatedName($value)

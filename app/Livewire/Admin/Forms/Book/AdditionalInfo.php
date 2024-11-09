@@ -9,6 +9,7 @@ use App\Models\PublicationStatus;
 use Livewire\Attributes\Validate; 
 use Livewire\Attributes\On; 
 use App\Models\Genre;
+use App\Models\Book;
 
 use Tools;
 
@@ -49,6 +50,21 @@ class AdditionalInfo extends Component
 
         // $this->date_value =  date("Y-m-d\TH:i:s\Z", strtotime($this->book->publish_date));
 
+
+    }
+
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->key = $this->book->key;
+        $this->isbn = $this->book->isbn;
+        $this->isbn13 = $this->book->isbn13;
+        $this->language_id = $this->book->language_id;
+        $this->media_type_id = $this->book->media_type_id;
+        $this->publication_status_id = $this->book->publication_status_id;
+        $this->genre_id = $this->book->genre_id;
+        $this->publish_date = date("Y-m-d\TH:i", strtotime($this->book->publish_date));
 
     }
 

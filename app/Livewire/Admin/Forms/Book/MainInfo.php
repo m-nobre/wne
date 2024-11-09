@@ -16,12 +16,22 @@ class MainInfo extends Component
     public $subtitle = NULL;
     public $key;
 
-    public function mount($book, $key)
+    public function mount($book, $key = NULL)
     {
         $this->book = $book;
         $this->key = $key;
         $this->title = !empty($book->title) ? $book->title : NULL;
         $this->subtitle = !empty($book->subtitle) ? $book->subtitle : NULL;
+    }
+
+    #[On('edit-book')] 
+    public function bookEdit($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->mount($this->book);
+    }
+    public function updatedBook($book){
+        $this->book = $book;
     }
 
     public function updatedTitle(){

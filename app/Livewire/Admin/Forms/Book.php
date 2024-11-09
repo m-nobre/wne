@@ -6,26 +6,88 @@ use Livewire\Component;
 use Livewire\Attributes\Validate; 
 use Livewire\Attributes\On; 
 use App\Models\Book as NewBook;
+
 use Tools;
 
 class Book extends Component
 {
+    public $update; 
     public $book;
     public $key;
 
-    public function mount()
+    public function mount($book_id = NULL, $key = NULL)
     {
-        $this->book = NewBook::find(676);
-        $this->key = Tools::key(6,33);
-        $this->book->key = $this->key;
-        $this->book->save();
+        if (!$book_id) {
+            
+            /* create a filter to pick up last empty record to avoid repetition */
 
+            $last = NewBook::orderBy('id', 'desc')->first();
+
+            if (   
+                    !empty($last->key) && 
+                    empty($last->title) &&
+                    empty($last->subtitle) &&
+                    empty($last->isbn) &&
+                    empty($last->isbn13) &&
+                    empty($last->description) &&
+                    empty($last->cover_image)
+                )
+            {
+                
+                $this->book = $last;
+
+            } else {
+
+                NewBook::whereNotNull('key')
+                    ->whereNull('title')
+                    ->whereNull('subtitle')
+                    ->whereNull('isbn')
+                    ->whereNull('isbn13')
+                    ->whereNull('description')
+                    ->whereNull('cover_image')
+                ->delete();
+
+                $this->book = new NewBook;
+
+            }
+
+            
+            // $this->book = NewBook::find($book_id);
+
+            $this->key = Tools::key(6,33);
+            $this->book->key = $this->key;
+            $this->book->save();
+
+        } else {
+
+            $this->book = NewBook::find($book_id);
+
+        }
+    }
+
+    
+    public function updateBook()
+    {  
+        $this->mount($this->book);
+    }
+
+    #[On('refreshComponent')] 
+    public function refreshComponent() {
+        $this->update = !$this->update;
+    }
+    
+    #[On('edit-book')] 
+    public function bookEdit($book_id)
+    {
+        $this->mount($book_id);
     }
 
     #[On('bookUpdated')] 
-    public function bookUpdated($id)
+    public function bookUpdated($book_id)
     {
-        $this->book = NewBook::find($id);
+        $this->book = NewBook::find($book_id);
+        $this->update = !$this->update;
+
     }
 
     public function saveBook()

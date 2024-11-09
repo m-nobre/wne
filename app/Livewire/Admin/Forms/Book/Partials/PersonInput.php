@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Validate; 
+use Livewire\Attributes\On; 
+use Tools;
+use App\Models\Book;
 
 
 class PersonInput extends Component
@@ -17,6 +21,7 @@ class PersonInput extends Component
     public $path = "App\\Models\\";
     public $list;
     public $person;
+    public $update;
 
 
 
@@ -71,6 +76,55 @@ class PersonInput extends Component
                 break;
         }
         
+    }
+
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        // Tools::Log("aoersin ubs", $book_id);
+        $this->book = Book::find($book_id);
+        switch ($this->model) {
+            case 'author':
+                $this->author_id = $this->book->author_id;
+                $this->name = $this->book->author->name ?? "";
+                break;
+            
+            case 'illustrator':
+                $this->illustrator_id = $this->book->illustrator_id;
+                $this->name = $this->book->illustrator->name ?? "";
+
+                break;
+            
+            case 'editor':
+                $this->editor_id = $this->book->editor_id;
+                $this->name = $this->book->editor->name ?? "";
+
+                break;
+            
+            case 'translator':
+                $this->translator_id = $this->book->translator_id;
+                $this->name = $this->book->translator->name ?? "";
+
+                break;
+            
+            case 'publisher':
+                $this->publisher_id = $this->book->publisher_id;
+                $this->name = $this->book->publisher->name ?? "";
+
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
+    }
+
+
+
+    #[On('refreshComponent')] 
+    public function refreshComponent() {
+        $this->update = !$this->update;
     }
 
     // Magic method that is fired when `streetAddress` is updated

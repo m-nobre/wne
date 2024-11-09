@@ -3,6 +3,11 @@
 namespace App\Livewire\Admin\Forms\Book\Partials;
 
 use Livewire\Component;
+use Livewire\Attributes\Validate; 
+use App\Models\Book;
+use Livewire\Attributes\On; 
+use Auth;
+use Tools;
 
 class AddKeyword extends Component
 {
@@ -11,7 +16,7 @@ class AddKeyword extends Component
     public $keywords = NULL;
     public $book;
 
-    public function mount($book)
+    public function mount($book, $key = NULL)
     {
         $this->book = $book;
         $this->key = $this->book->key;
@@ -19,6 +24,15 @@ class AddKeyword extends Component
 
     }
 
+
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->keywords = json_decode($this->book->keywords, TRUE) ?? NULL;
+
+
+    }
 
     public function updatedNewKeyword()
     {

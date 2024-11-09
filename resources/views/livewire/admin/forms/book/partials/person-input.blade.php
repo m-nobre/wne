@@ -21,6 +21,7 @@ x-data='{
         type="text"
         list="{{ucfirst($model)}}nameOptions"
         wire:model.live.debounce.1000ms="name"
+        value="{{$name ?? ''}}"
         class="border-gray-300 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
         x-on:change.debounce="{{ucfirst($model)}}nameSelected($event)"
     >

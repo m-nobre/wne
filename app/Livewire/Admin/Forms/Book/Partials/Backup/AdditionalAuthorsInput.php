@@ -66,7 +66,7 @@ class AdditionalAuthorsInput extends Component
     public function updatedName($name)
     {
 
-        Tools::log('updatedName', $name);
+        // Tools::log('updatedName', $name);
 
 
         if(!empty($name)) {

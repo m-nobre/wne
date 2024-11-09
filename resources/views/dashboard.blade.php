@@ -11,13 +11,10 @@
                     <div class="mb-6 mt-3">
                         <x-application-logo class="h-12"/>
                     </div>
-                    <div class="grid grid-cols-7 gap-3">
-                        <div class="col-span-5">
-                            @livewire('admin.forms.book')
-                        </div>
-                        <div class="col-span-2 bg-neutral-50 rounded-xl">
-                            @livewire('admin.forms.book.partials.book-delete')
-                        </div>
+                    <div>
+
+                            @livewire('admin.book-dash')
+
                     </div>
                 </div>
 

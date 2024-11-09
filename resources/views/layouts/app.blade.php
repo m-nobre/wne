@@ -13,9 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
         @stack('head')
         <!-- Styles -->
-        @livewireStyles
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <script
         src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -44,9 +44,9 @@
             </main>
         </div>
 
+        @livewireScripts
         @stack('modals')
         @stack('scripts')
 
-        @livewireScripts
     </body>
 </html>

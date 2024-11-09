@@ -329,17 +329,17 @@ class AddBookForm extends Component
 
     public function updatedKeyword($value)
     {
-        Tools::log("updatedKeyword", $value);
+        // Tools::log("updatedKeyword", $value);
 
         $this->keyword = $value;
     }
 
     public function addKeyword()
     {
-        Tools::log("addKeyword", $this->keyword);
+        // Tools::log("addKeyword", $this->keyword);
         $this->keywords[] = $this->keyword;
         // $this->book->keywords = json_encode(array_unique($this->keywords));
-        Tools::log("addKeywords", $this->keywords);
+        // Tools::log("addKeywords", $this->keywords);
         // $this->book->save();
     }
     

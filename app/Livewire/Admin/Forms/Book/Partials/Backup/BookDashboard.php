@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Forms\Book\Partials\Backup;
 
 use Livewire\Component;
 use App\Models\Book;
@@ -21,6 +21,6 @@ class BookDashboard extends Component
 
     public function render()
     {
-        return view('livewire.admin.book-dashboard');
+        return view('livewire.admin.forms.book.partials.backup.book-dashboard');
     }
 }

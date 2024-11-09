@@ -24,6 +24,25 @@ class Description extends Component
 
     }
 
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        // Tools::Log('Book Updaated on Description1', $book_id);
+        $this->description = '';
+        
+        $this->book = Book::find($book_id);
+        // Tools::Log('Book Updaated on Description2', json_encode($this->book));
+        $this->key = $this->book->key;
+        // Tools::Log('Book Updaated on Description3', $this->book->key);
+        
+        $this->description = $this->book->description;
+        // Tools::Log('Book Updaated on Description4', $this->description);
+
+        $this->mount($this->book);
+
+    }
+    
+
     public function updatedDescription(){
         $this->book->description = $this->description;
         $this->book->save();
@@ -32,11 +51,11 @@ class Description extends Component
     #[On("description-edited")] 
     public function updateDescriptionData($value, $element)
     {
-        if (explode("-", $element)[1] == $this->key) {
+
             $this->description = $value;
             $this->book->description = $value;
             $this->book->save();
-        }
+        
     }
 
     public function render()

@@ -14,10 +14,17 @@ class BookDelete extends Component
         $this->books = Book::all();    
     }
 
+    public function editBook($id){
+        $book = Book::find($id);
+        $this->dispatch("edit-book", book_id: $id);
+        $this->dispatch("bookUpdated", book_id: $id);
+        $this->dispatch("bookDescription", description: $book->description);
+
+        $this->dispatch("refreshComponent");
+    }
+
     public function deleteBook($id){
-        
         Book::destroy($id);
-        
         $this->books = Book::all();    
     }
 

@@ -20,10 +20,17 @@ class TagAuthorInfo extends Component
     public $book;
     public $key;
 
-    public function mount($book)
+    public function mount($book, $key = NULL)
     {
         $this->book = $book;
         $this->key = $this->book->key;
+    }
+
+    #[On('edit-book')] 
+    public function bookEdit($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->mount($this->book);
     }
     
     #[On('additionalAuthorAdded')] 

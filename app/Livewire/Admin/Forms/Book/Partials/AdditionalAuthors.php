@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Forms\Book\Partials;
 
 use Livewire\Component;
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate; 
 use Livewire\Attributes\On; 
@@ -13,7 +14,7 @@ use Tools;
 class AdditionalAuthors extends Component
 {
 
-    public $book;
+    public Book $book;
     public $key;
     public array $searchResults = [];
     public $additionalAuthorName = NULL;
@@ -23,8 +24,9 @@ class AdditionalAuthors extends Component
     public $person;
     public $newPerson = NULL;
     public $verified = NULL;
+    public $update;
 
-    public function mount($book)
+    public function mount($book, $key = NULL)
     {
         $this->book = $book;
         $this->key = $this->book->key;
@@ -32,8 +34,17 @@ class AdditionalAuthors extends Component
         // $this->publication_status_id = $this->book->publication_status_id;
         $this->additional_authors = json_decode($this->book->additional_authors, TRUE) ?? NULL;
     }
-
     
+
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->additional_authors = json_decode($this->book->additional_authors, TRUE) ?? NULL;
+
+
+    }
+
     #[On('additionalAuthorSelected')] 
     public function additionalAuthorSelected($id)
     {

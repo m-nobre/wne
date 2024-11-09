@@ -16,6 +16,11 @@
                 </th>
                 <th class="p-4 border-b border-slate-300 bg-slate-50">
                   <p class="block text-sm font-normal leading-none text-slate-500">
+                    Edit
+                  </p>
+                </th>
+                <th class="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
                     Delete
                   </p>
                 </th>
@@ -33,6 +38,13 @@
                     <p class="block text-sm text-slate-800">
                         {{ $book->title }}
                     </p>
+                    </td>
+                    <td class="p-4 border-b border-slate-200">
+                        <a href="#"  
+                        wire:click="editBook({{ $book->id }})"
+                        class="block text-sm font-semibold text-slate-800">
+                        Edit
+                        </a>
                     </td>
                     <td class="p-4 border-b border-slate-200">
                         <a href="#"  

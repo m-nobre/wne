@@ -38,9 +38,9 @@
                 @endif
 
             </div>
-            <div class="w-full px-1 m-0">
+            {{-- <div class="w-full px-1 m-0">
                 <button type="button" wire:click="savePhoto" class="w-full py-2 px-4 bg-indigo-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75 disabled:bg-slate-50 disabled:text-slate-300 disabled:border-slate-200 rounded-t-lg transition-all hover:shadow-lg " {{!empty($cover_image) ? '' : 'disabled'}}>Save</button>
-            </div>
+            </div> --}}
 
         </div>
     </div>

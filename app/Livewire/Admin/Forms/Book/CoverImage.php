@@ -27,9 +27,25 @@ class CoverImage extends Component
         $this->book = $book;
         $this->key = $this->book->key;
         $this->old_image = !empty($book->cover_image) ? $book->cover_image : NULL;
+        $this->cover_image = !empty($book->cover_image) ? $book->cover_image : NULL;
+
+    }
+
+    #[On('bookUpdated')] 
+    public function bookUpdated($book_id)
+    {
+        $this->book = Book::find($book_id);
+        $this->key = $this->book->key;
+        $this->old_image = !empty($this->book->cover_image) ? $this->book->cover_image : NULL;
+        $this->cover_image = NULL;
 
     }
     
+    public function updatedCoverImage($value){
+        Tools::log('updatedCoverImage', $value);
+        $this->savePhoto();
+    }
+
     public function savePhoto()
     {
         $filename = str()->random().".".$this->cover_image->extension();

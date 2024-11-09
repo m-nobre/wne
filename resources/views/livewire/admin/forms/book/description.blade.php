@@ -8,6 +8,13 @@
         
     </div>
 
+    @script
+    <script>
+        Livewire.on('bookDescription', description => {
+            tinymce.get("description-{{$key}}").setContent(description.description ?? '');
+        })
+        </script>
+    @endscript
 
     @push('scripts')
         <script>
@@ -22,13 +29,15 @@
                     height: 300,
                     setup: (editor) => {
                         editor.on('input', (e) => {
-
+                            // console.log(e);
                             Livewire.dispatch('description-edited', {value: e.target.innerHTML, element:e.target.dataset.id});
 
                         });
+                    
                     }
                 });
             });
         </script>
+
     @endpush
 </div>
