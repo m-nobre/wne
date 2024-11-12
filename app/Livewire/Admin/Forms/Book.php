@@ -14,6 +14,7 @@ class Book extends Component
     public $update; 
     public $book;
     public $key;
+    public $editing_book;
 
     public function mount($book_id = NULL, $key = NULL)
     {
@@ -62,8 +63,21 @@ class Book extends Component
 
             $this->book = NewBook::find($book_id);
 
+
         }
+
+        $this->editing_book = $this->book->id;
+
     }
+
+    // #[On('deletedBook')] 
+    // public function deletedBook()
+    // {
+    //     $this->book = Book::orderBy('id', 'desc')->first();
+    //     $this->mount($this->book->id);
+    //     $this->editing_book = $this->book->id;
+
+    // }
 
     
     public function updateBook()
@@ -80,6 +94,7 @@ class Book extends Component
     public function bookEdit($book_id)
     {
         $this->mount($book_id);
+        $this->editing_book = $book_id;
     }
 
     #[On('bookUpdated')] 

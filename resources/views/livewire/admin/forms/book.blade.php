@@ -11,6 +11,11 @@
                 margin-bottom: 3px;
 
             }
+
+            .selected-row {
+                background-color: rgb(236, 236, 236);
+            }
+
         </style>
     @endpush
     <div class="px-6 py-4 grid grid-cols-2 gap-3">
@@ -44,10 +49,33 @@
         
         </button>
     </div>
+    @script
+        <script>
+            Livewire.on('edit-book', book_id => {
+                // console.log($("tr[data-id*='1010']").find(".id-text"))
+                // $(`tr[data-id*='${id.book_id}']`).find('.id-text').prepend("<i class='bi bi-caret-right-fill temp-caret'></i>");
+                // $("tr[data-id*='1010']").find(".id-text").prepend("<i class='bi bi-caret-right-fill mr-3'></i>")
+                $("tr[data-id='1010']").find(".id-text").addClass("selected-row")
+                $("tr[data-id*='1010']").find(".id-text").prepend("<i class='bi bi-caret-right-fill mr-3'></i>")
+            })
+
+        </script>
+    @endscript
     @push('scripts')
         <script>
             $(function(){
                 $(".tox-statusbar__branding").hide();
+                $("tr[data-id*='{{$book->id}}']").find('.id-text').prepend("<i class='bi bi-caret-right-fill temp-caret'></i>");
+                window.addEventListener('edit-book', event => {
+                    // alert('Name updated to: ' + event.detail);
+                    console.log($("tr[data-id*='"+event.detail.book_id+"']"));
+                    $("tr[data-id*='"+event.detail.book_id+"']").remove()
+                    $(".hide-on-edit").remove()
+                    // $("tr[data-id*='"+event.detail.book_id+"']").find(".id-text").prepend("<i class='bi bi-caret-right-fill mr-3'></i>")
+                    
+
+                })
+
             });
         </script>
     @endpush

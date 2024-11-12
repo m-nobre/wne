@@ -32,7 +32,7 @@
                         <div class="grid grid-cols-3">
                             <h3 class="text-sm text-gray-600">Autor:</h3>
                             <h2 class="text-md text-gray-500 col-span-2  text-center font-black	">{{$book->author->name ?? ''}}</h2>
-                            <h3 class="text-md text-gray-600 col-span-3 my-3 font-black text-left">Contributors</h3>
+                            <h3 class="text-md text-gray-600 col-span-3 my-3 font-black text-center">Contributors</h3>
 
                             <div class="flex w-full col-span-3">
                                 <h3 class="text-md text-gray-600 baseline mx-3">Ilustrador:</h3>
@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="flex w-full col-span-3">
-                                <h3 class="text-md text-gray-600 baseline mx-3">Editorial:</h3>
+                                <h3 class="text-md text-gray-600 baseline mx-3">Editoria:</h3>
                                 <div class="relative group col-span-2 baseline">
                                     <span class="text-md text-blue-600 cursor-pointer hover:underline">{{$book->editor->name ?? ''}}</span>
                                     <div class="absolute left-0 w-48 mt-1 rounded-lg shadow-lg bg-white p-3 text-sm text-gray-800 hidden group-hover:block z-90">

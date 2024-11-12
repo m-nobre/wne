@@ -1,0 +1,53 @@
+#logo-3d-container {
+    margin-bottom: 120px;
+}
+
+#main-header .title-text {
+    background-color: #333;
+    font-family: 'Impact', cursive;
+    font-size: 73px;
+    z-index: 90;
+}
+
+#logo-3d-container path {
+    fill: transparent;
+}
+
+#logo-3d-container text {
+    fill: #b97816;
+}
+
+.hover-popup {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0.5rem;
+    z-index: 10;
+    width: 200px; /* Adjust as necessary */
+}
+.hover-container:hover .hover-popup {
+    display: block;
+    
+}
+
+.fixed-bg {
+    /* The background image */
+    background-image: url("storage/images/fundo.png");
+
+    /* Set a specified height, or the minimum height for the background image */
+    min-height: 500px;
+
+    /* Set background image to fixed (don't scroll along with the page) */
+    background-attachment: fixed;
+
+    /* Center the background image */
+    background-position: center;
+
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
+}

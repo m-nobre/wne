@@ -25,6 +25,16 @@ class BookDash extends Component
 
     }
 
+    // #[On('deletedBook')] 
+    // public function deletedBook()
+    // {
+    //     $this->book = Book::orderBy('id', 'desc')->first();
+    //     $this->dispatch("bookUpdated", book_id: $this->book->id);
+    //     $this->mount($this->book->id);
+
+    // }
+
+
     public function render()
     {
         return view('livewire.admin.book-dash');
