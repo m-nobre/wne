@@ -17,7 +17,7 @@ const camera = new THREE.PerspectiveCamera(
     0.5,
     1000
 )
-camera.position.set(66, -66, 66);
+camera.position.set(130, 0, 66);
 
 var obj;
 

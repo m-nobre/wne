@@ -37,8 +37,15 @@
                 fill: transparent;
             }
 
-            #logo-3d-container text {
-                fill: #b97816;
+            body {
+                background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+            }
+            text {
+                fill: url("#myGradient") #8f6B29;
+
+                /* fill: #8f6B29; */
+
             }
 
             .hover-popup {
@@ -89,6 +96,18 @@
     
             <div id="main-header" class="relative flex grid " style="margin-top:33px">                         
                 <svg viewBox="0 0 500 500">
+                    <defs>
+                        <linearGradient id="myGradient">
+                          <stop offset="0%" stop-color="#FEDB37" />
+                          <stop offset="8%" stop-color="#FDB931" />
+                          <stop offset="30%" stop-color="#9f7928" />
+                          <stop offset="40%" stop-color="#FEDB37" />
+                          <stop offset="60%" stop-color="#5d4a1f" />
+                          <stop offset="70%" stop-color="#D1B464" />
+                          <stop offset="90%" stop-color="#FFFFAC" />
+                          <stop offset="100%" stop-color="#8A6E2F" />
+                        </linearGradient>
+                      </defs>
                     <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" style="fill: transparent;" />
                     <text width="300" class="title-text">
                         <textPath xlink:href="#curve">

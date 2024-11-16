@@ -26,7 +26,7 @@ class StartSeeder extends Seeder
             try {
 
                 Language::firstOrCreate([
-                    'name'                   => 'Portuguese'   
+                    'name'                   => 'Portugues'   
                 ], [
                     'description'             => 'Europeu',
                     'slug'                   => Str::slug('Português'),

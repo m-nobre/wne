@@ -11,11 +11,11 @@
         </style>
 
     {{-- Care about people's approval and you will be their prisoner. --}}
-    <div class="flex grid grid-cols-2 gap-4 w-full justify-between	min-w-full">
+    <div class="flex grid grid-cols-4 gap-4 w-full justify-between	min-w-full">
         @foreach ($books as $book)
             <div class="max-w-md mx-auto my-5 p-5 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="my-2 book-title rounded-lg -mt-2 p-2">
-                    <h2 class="text-lg font-bold">Book Title</h2>
+                    <h2 class="text-lg font-bold">{{$book->title ?? ''}}</h2>
                     <div class="divider flex p-1 w-full bg-dark mb-3"> </div>
                     <h3 class="font-bold">{{$book->subtitle ?? ''}}</h3>
 
