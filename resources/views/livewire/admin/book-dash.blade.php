@@ -6,4 +6,5 @@
     <div class="col-span-2 bg-neutral-50 rounded-xl">
         @livewire('admin.forms.book.partials.book-delete')
     </div>
+    
 </div>

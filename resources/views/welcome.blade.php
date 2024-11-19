@@ -93,8 +93,12 @@
     </head>
     <body class="font-sans antialiased  dark:text-white/50  fixed-bg">
         <div class="flex lg:justify-center lg:col-start-2">
-    
-            <div id="main-header" class="relative flex grid " style="margin-top:33px">                         
+            
+            <div id="main-header" class="relative flex grid " style="margin-top:33px">      
+                <div class="relative justify-center m-auto flex flex-row mt-16 -mb-64">
+                    <img src="{{asset('storage/images/wneround.png')}}" alt="Works New Era">
+                </div>
+                   
                 <svg viewBox="0 0 500 500">
                     <defs>
                         <linearGradient id="myGradient">
@@ -109,11 +113,6 @@
                         </linearGradient>
                       </defs>
                     <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" style="fill: transparent;" />
-                    <text width="300" class="title-text">
-                        <textPath xlink:href="#curve">
-                            Works New Era
-                        </textPath>
-                    </text>
                 </svg>
                 <div id="logo-3d-container" class="flex-1 relative grid justify-items-center">
                     @vite('resources/js/logo.js')

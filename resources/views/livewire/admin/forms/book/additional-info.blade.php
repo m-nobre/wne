@@ -55,6 +55,10 @@
 
         </select>
     </div>
+    <div class="container mx-auto px-20">
+
+
+</div>
     @if ($media_types)                        
         <div class="mb-3">
             <div class="flex justify-between">
