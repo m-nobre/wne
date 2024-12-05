@@ -22,7 +22,6 @@
         <style>
 
             #logo-3d-container {
-                margin-bottom: 120px;
                 margin-top: -400px;
             }
 
@@ -31,6 +30,14 @@
                 font-family: 'Impact', cursive;
                 font-size: 73px;
                 z-index: 90;
+            }
+
+            @media (min-width: 1610px) {
+
+                #logo-3d-container {
+                    margin-top: -930px;
+                }
+
             }
 
             #path {
@@ -91,32 +98,33 @@
         @stack("head")
 
     </head>
-    <body class="font-sans antialiased  dark:text-white/50  fixed-bg">
+    <body class="font-sans antialiased  dark:text-white/50  fixed-bg m-0 p-0">
         <div class="flex lg:justify-center lg:col-start-2">
             
-            <div id="main-header" class="relative flex grid " style="margin-top:33px">      
-                <div class="relative justify-center m-auto flex flex-row mt-16 -mb-64">
+            <div id="main-header" class="relative flex grid pt-6">      
+                <div class="relative justify-center m-auto flex flex-row">
                     <img src="{{asset('storage/images/wneround.png')}}" alt="Works New Era">
                 </div>
-                   
-                <svg viewBox="0 0 500 500">
-                    <defs>
-                        <linearGradient id="myGradient">
-                          <stop offset="0%" stop-color="#FEDB37" />
-                          <stop offset="8%" stop-color="#FDB931" />
-                          <stop offset="30%" stop-color="#9f7928" />
-                          <stop offset="40%" stop-color="#FEDB37" />
-                          <stop offset="60%" stop-color="#5d4a1f" />
-                          <stop offset="70%" stop-color="#D1B464" />
-                          <stop offset="90%" stop-color="#FFFFAC" />
-                          <stop offset="100%" stop-color="#8A6E2F" />
-                        </linearGradient>
-                      </defs>
-                    <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" style="fill: transparent;" />
-                </svg>
-                <div id="logo-3d-container" class="flex-1 relative grid justify-items-center">
-                    @vite('resources/js/logo.js')
-                </div>
+                   <div class="overflow-visible relative top-[50px] md:top-[250px]">
+                       <svg viewBox="0 0 800 800">
+                           <defs>
+                               <linearGradient id="myGradient">
+                                 <stop offset="0%" stop-color="#FEDB37" />
+                                 <stop offset="8%" stop-color="#FDB931" />
+                                 <stop offset="30%" stop-color="#9f7928" />
+                                 <stop offset="40%" stop-color="#FEDB37" />
+                                 <stop offset="60%" stop-color="#5d4a1f" />
+                                 <stop offset="70%" stop-color="#D1B464" />
+                                 <stop offset="90%" stop-color="#FFFFAC" />
+                                 <stop offset="100%" stop-color="#8A6E2F" />
+                               </linearGradient>
+                             </defs>
+                           <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" style="fill: transparent;" />
+                       </svg>
+                       <div id="logo-3d-container" class="justify-items-center w-full mx-h-screen overflow-visible flex relative top-[-400px]">
+                           @vite('resources/js/logo.js')
+                       </div>
+                   </div>
             </div>
 
         </div>

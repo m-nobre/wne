@@ -5,7 +5,7 @@ import Stats from 'three/examples/jsm/libs/stats.module'
 
 
 const scene = new THREE.Scene()
-scene.add(new THREE.AxesHelper(5))
+// scene.add(new THREE.AxesHelper(5))
 
 const light = new THREE.SpotLight()
 light.position.set(20, 20, 20)
@@ -17,13 +17,20 @@ const camera = new THREE.PerspectiveCamera(
     0.5,
     1000
 )
-camera.position.set(130, 0, 66);
+camera.position.set(130, 0, 166);
 
 var obj;
 
 const renderer = new THREE.WebGLRenderer( { alpha: true } )
-// renderer.setSize(window.innerWidth, window.innerHeight)
-renderer.setSize(400, 400)
+
+// If height bigger than width, as in mobile, set side width for both else sets side of heigh for both, like desktop
+if(window.innerHeight > window.innerWidth){
+    renderer.setSize(window.innerWidth, window.innerWidth)
+} else {
+
+    renderer.setSize(window.innerHeight, window.innerHeight)
+}
+
 document.getElementById("logo-3d-container").appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
@@ -55,11 +62,16 @@ const material = new THREE.MeshPhysicalMaterial({
 })
 
 const loader = new STLLoader()
+
 loader.load(
-    'storage/models/wne.stl',
+    'storage/models/wne-3px.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
         obj = mesh;
+        // SETTING POSITION OF THE MESH OBJECT WITH x,y,z props
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 0;
         scene.add(mesh)
         
     },
@@ -71,12 +83,39 @@ loader.load(
     }
 )
 
+// instantiate a loader
+const imgLoader = new THREE.ImageLoader();
+
+// load a image resource
+imgLoader.load(
+	// resource URL
+	'storage/images/wneround.png',
+
+	// onLoad callback
+	function ( image ) {
+
+		scene.drawImage( image, 100, 100 );
+	},
+
+	// onProgress callback currently not supported
+	undefined,
+
+	// onError callback
+	function () {
+		console.error( 'An error happened.' );
+	}
+);
+
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
     camera.aspect = 1
     camera.updateProjectionMatrix()
-    // renderer.setSize("100%", "100%")
-    renderer.setSize('400', '400')
+    if(window.innerHeight > window.innerWidth){
+        renderer.setSize(window.innerWidth, window.innerWidth)
+    } else {
+    
+        renderer.setSize(window.innerHeight, window.innerHeight)
+    }
     render()
 }
 
