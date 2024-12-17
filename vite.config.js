@@ -10,6 +10,11 @@ export default defineConfig({
                 'resources/js/logo.js',
             ],
             refresh: true,
+            publicDirectory: 'public_html',
         }),
     ],
+    build: {
+        outDir: "public_html/build",
+      },
+      
 });
